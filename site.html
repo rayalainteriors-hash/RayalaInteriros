@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayala Interiors | Modern Interior Design</title>
+    <!-- Google Fonts: Poppins --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- This single file contains all the styling for the website --><style>
+        /* ------------------- */
+        /* --- CSS Reset --- */
+        /* ------------------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ------------------- */
+        /* -- Root Variables -- */
+        /* ------------------- */
+        :root {
+            --color-primary-bg: #1A1A2E; /* Deep Indigo/Navy */
+            --color-secondary-bg: #16213E; /* Slightly Lighter Indigo for cards */
+            --color-tertiary-bg: #0F1626; /* Even Darker Indigo for sections */
+            --color-accent: #5dbdb3; /* Teal from logo */
+            --color-text: #E0E0E0; /* Off-white text */
+            --color-light-text: #A0A0A0; /* Lighter grey text */
+            --font-family-main: 'Poppins', sans-serif;
+            --header-height: 80px;
+        }
+
+        /* ------------------- */
+        /* --- Base Styles --- */
+        /* ------------------- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-main);
+            background-color: var(--color-primary-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            color: var(--color-text);
+            letter-spacing: 0.5px;
+        }
+
+        h1 { 
+            font-size: 3.5rem; 
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5); 
+            background: linear-gradient(90deg, var(--color-accent), #8ED1C6, #D1EDEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--color-light-text);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-accent);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .home-section {
+             padding: 6rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-image: linear-gradient(45deg, var(--color-accent), #8ED1C6);
+            color: var(--color-primary-bg);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 2px 5px rgba(93, 189, 179, 0.5);
+            transform-style: preserve-3d;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 4px 10px rgba(93, 189, 179, 0.7);
+            color: var(--color-primary-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-text);
+        }
+        .section-title span {
+            color: var(--color-accent);
+        }
+
+        /* ------------------- */
+        /* ------ Header ----- */
+        /* ------------------- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: transparent;
+            z-index: 1000;
+            transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(22, 33, 62, 0.7); /* Adjusted to match new palette */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            height: 40px;
+            width: auto;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(93, 189, 179, 0.5));
+        }
+        .logo:hover .logo-icon {
+            transform: scale(1.05); /* Simplified hover effect */
+        }
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-text);
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--color-text);
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .nav-link:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            color: white; /* Ensure text remains white on hover */
+        }
+        .nav-link.active {
+             color: var(--color-accent);
+             font-weight: 600;
+             text-shadow: 0 0 8px rgba(93, 189, 179, 0.6);
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--color-text);
+            transition: transform 0.3s ease;
+        }
+        .mobile-nav-toggle:hover {
+            transform: scale(1.1);
+            color: var(--color-accent);
+        }
+
+        /* ------------------- */
+        /* --- Page Content -- */
+        /* ------------------- */
+        main {
+            padding-top: var(--header-height);
+        }
+
+        .page-content {
+            display: none; /* All pages hidden by default */
+            background-color: var(--color-primary-bg); /* Ensure sections have consistent background */
+        }
+        
+        .page-content.active {
+            display: block; /* Active page is shown */
+            animation: fadeInPage 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        #home { padding-top: 0; padding-bottom: 0; animation: none; }
+        
+        #home.active { display: block; }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        /* -- Scroll Animations -- */
+        .fade-in-up { opacity: 0; transform: translateY(50px); transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .slide-in-left { opacity: 0; transform: translateX(-80px); transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .slide-in-right { opacity: 0; transform: translateX(80px); transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .fade-in-up.visible, .slide-in-left.visible, .slide-in-right.visible { opacity: 1; transform: translateY(0) translateX(0); }
+        .fade-in-up:nth-child(2) { transition-delay: 0.1s; }
+        .fade-in-up:nth-child(3) { transition-delay: 0.2s; }
+        .fade-in-up:nth-child(4) { transition-delay: 0.3s; }
+
+        /* ------------------- */
+        /* --- Home Page ----- */
+        /* ------------------- */
+        
+        .hero-slider-container { position: relative; overflow: hidden; width: 100%; height: 100vh; background-color: var(--color-tertiary-bg); }
+        .hero-slider-container::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, var(--color-primary-bg) 100%); 
+            z-index: 1; 
+        }
+        .hero-slider { display: flex; height: 100%; transition: transform 1s ease-in-out; }
+        .slide { min-width: 100%; box-sizing: border-box; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8) contrast(1.1); }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.2); color: var(--color-text); font-size: 1.5rem; cursor: pointer; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; backdrop-filter: blur(5px); }
+        .slider-btn:hover { background-color: rgba(255, 255, 255, 0.2); transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px rgba(93, 189, 179, 0.5); }
+        .slider-btn.prev { left: 30px; }
+        .slider-btn.next { right: 30px; }
+        .slider-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.2); cursor: pointer; transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.3); }
+        .dot.active { background-color: var(--color-accent); transform: scale(1.3); box-shadow: 0 0 10px var(--color-accent); }
+        .intro-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2; width: 90%; max-width: 800px; }
+        .intro-text h1 { line-height: 1.2; margin-bottom: 1.5rem; }
+        .intro-text span { color: var(--color-accent); }
+        .intro-text p { max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 2.5rem; font-size: 1.1rem; }
+        .specialization-grid, .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .special-card { 
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.8), rgba(26, 26, 46, 0.8)); /* Darker, richer gradient */
+            border: 1px solid rgba(255,255,255,0.15); 
+            padding: 2.5rem; 
+            border-radius: 15px; 
+            text-align: center; 
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease; 
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .special-card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 20px rgba(93, 189, 179, 0.3); 
+            background: linear-gradient(135deg, rgba(30, 45, 80, 0.9), rgba(35, 35, 60, 0.9));
+        }
+        .special-card .icon { 
+            font-size: 3rem; 
+            color: var(--color-accent); 
+            margin-bottom: 1.5rem; 
+            text-shadow: 0 0 15px var(--color-accent);
+        }
+        .featured-projects { background-color: var(--color-tertiary-bg); } /* Darker section */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .project-item { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); height: 350px; }
+        .project-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; filter: brightness(0.9) saturate(1.1); }
+        .project-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 60%); color: white; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; text-align: left; padding: 2rem; opacity: 1; transition: all 0.5s ease; }
+        .project-item:hover img { transform: scale(1.1); filter: brightness(1) saturate(1.2); }
+        .project-item:hover .project-overlay { background: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 80%); }
+        .project-overlay h4 { color: white; margin-bottom: 0.5rem; transform: translateY(20px); transition: transform 0.4s ease; }
+        .project-overlay p { color: var(--color-light-text); transform: translateY(20px); transition: transform 0.4s ease 0.1s; }
+        .project-item:hover .project-overlay h4, .project-item:hover .project-overlay p { transform: translateY(0); }
+        .text-center { text-align: center; margin-top: 4rem; }
+        .testimonial-card { 
+            background-color: var(--color-secondary-bg); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 2.5rem; 
+            border-radius: 15px; 
+            backdrop-filter: blur(10px); 
+            border-left: 5px solid var(--color-accent); 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+        .testimonial-card blockquote { font-style: italic; color: var(--color-light-text); border: none; padding: 0; margin: 0 0 1rem 0; font-size: 1.1rem; }
+        .testimonial-card .client-name { font-weight: 600; color: var(--color-text); }
+
+        /* ------------------- */
+        /* -- Services & Projects Page -- */
+        /* ------------------- */
+        #services { padding: 0; background-color: var(--color-secondary-bg); }
+        .service-section {
+            position: relative;
+            padding: 8rem 0;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        .service-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(22, 33, 62, 0.85);
+            backdrop-filter: blur(2px);
+        }
+        .service-content {
+            position: relative;
+            z-index: 2;
+            max-width: 50%;
+        }
+        .service-section.align-right .service-content {
+            margin-left: auto;
+        }
+        .service-content h3 {
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(93, 189, 179, 0.5);
+        }
+        #projects { padding: 6rem 0; background-color: var(--color-secondary-bg); }
+        .content-row { display: flex; align-items: center; gap: 4rem; margin-bottom: 6rem; }
+        .content-row:last-child { margin-bottom: 0; }
+        .content-row.reverse { flex-direction: row-reverse; }
+        .content-image, .content-text { flex: 1; }
+        .content-image img { width: 100%; height: auto; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); filter: brightness(0.9) saturate(1.1); }
+        .content-text h3 { margin-bottom: 1.5rem; color: var(--color-accent); font-size: 2rem; text-shadow: 0 0 10px rgba(93, 189, 179, 0.5); }
+        .content-text .btn { margin-top: 1.5rem; }
+        
+        /* -- Project Detail/Gallery Pages -- */
+        .project-gallery-page { padding: 6rem 0; background-color: var(--color-secondary-bg); }
+        .page-header { text-align: center; margin-bottom: 4rem; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 3rem; font-weight: 500; color: var(--color-light-text); transition: color 0.3s ease, transform 0.3s ease; }
+        .btn-back:hover { color: var(--color-accent); transform: translateX(-5px); }
+        .project-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .gallery-item { overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); height: 280px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; filter: brightness(0.9) saturate(1.1); }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(1) saturate(1.2); }
+
+        /* ------------------- */
+        /* --- About Page ---- */
+        /* ------------------- */
+        #about, #contact { padding: 6rem 0; background-color: var(--color-primary-bg); }
+        .about-text { max-width: 800px; margin: 0 auto; text-align: center; }
+        .about-text h3 { color: var(--color-accent); margin-bottom: 1.5rem; font-size: 2rem; text-shadow: 0 0 10px rgba(93, 189, 179, 0.5); }
+
+        /* ------------------- */
+        /* -- Contact Page --- */
+        /* ------------------- */
+        .contact-wrapper { display: flex; gap: 4rem; background: transparent; padding: 0; border-radius: 15px; box-shadow: none; }
+        .contact-info, .contact-form { flex: 1; }
+        .contact-info-item { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
+        .contact-info-item .icon { 
+            font-size: 1.8rem; 
+            color: var(--color-accent); 
+            margin-top: 4px;
+            filter: drop-shadow(0 0 8px rgba(93, 189, 179, 0.7));
+        }
+        form .form-group { margin-bottom: 1.5rem; }
+        form label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-light-text); }
+        form input, form textarea { 
+            width: 100%; 
+            padding: 1rem; 
+            border: 1px solid rgba(255,255,255,0.15); 
+            border-radius: 8px; 
+            font-family: var(--font-family-main); 
+            background: linear-gradient(135deg, rgba(22, 33, 62, 0.7), rgba(26, 26, 46, 0.7)); /* Glassmorphic input */
+            color: var(--color-text); 
+            backdrop-filter: blur(5px); 
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.4);
+        }
+        form input:focus, form textarea:focus { 
+            border-color: var(--color-accent); 
+            box-shadow: 0 0 15px rgba(93, 189, 179, 0.6), inset 0 2px 15px rgba(0,0,0,0.6); 
+            outline: none; 
+        }
+        form textarea { min-height: 150px; resize: vertical; }
+        #form-result { margin-top: 1.5rem; font-weight: 500; }
+        
+        /* ------------------- */
+        /* ------ Footer ----- */
+        /* ------------------- */
+        .footer { 
+            background: linear-gradient(to top, #0A0A0A, var(--color-tertiary-bg)); 
+            color: var(--color-light-text); 
+            padding: 4rem 0 3rem 0; 
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+        }
+        .footer .logo { display: inline-block; margin-bottom: 1.5rem; }
+        .footer .logo-img { height: 60px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; }
+        .footer .logo:hover .logo-img { opacity: 1; transform: scale(1.05); }
+        .social-links { list-style: none; display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+        .social-links a { color: var(--color-light-text); font-size: 1.2rem; transition: color 0.3s ease, transform 0.3s ease; }
+        .social-links a:hover { color: var(--color-accent); transform: translateY(-3px) scale(1.1); }
+        .footer p { color: #666; font-size: 0.9rem; }
+
+        /* ------------------- */
+        /* -- Responsive ----- */
+        /* ------------------- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .hero-slider-container { height: 80vh; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; left: -100%; width: 100%; height: 100vh; background-color: rgba(15, 22, 38, 0.95); backdrop-filter: blur(15px); flex-direction: column; align-items: center; justify-content: center; transition: left 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
+            .nav-links.active { left: 0; }
+            .nav-link { font-size: 1.8rem; margin: 1rem 0; }
+            .mobile-nav-toggle { display: block; z-index: 1001; position: fixed; right: 2rem; top: calc(var(--header-height)/2 - 0.75rem); }
+            .contact-wrapper { flex-direction: column; gap: 3rem; }
+            .hero-slider-container { height: 100vh; }
+            .content-row, .content-row.reverse { flex-direction: column; gap: 3rem; text-align: center; }
+            .service-content { max-width: 100%; }
+            .service-section.align-right .service-content { margin-left: 0; }
+            .logo-text { font-size: 1.5rem; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.3rem; }
+            .btn { padding: 10px 20px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="#" class="logo nav-link" data-page="home">
+                <img src="images/rayala icon.png" alt="Rayala Interiors Icon" class="logo-icon">
+                <span class="logo-text">Rayala Interiors</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a class="nav-link active" data-page="home">Home</a></li>
+                    <li><a class="nav-link" data-page="services">Services</a></li>
+                    <li><a class="nav-link" data-page="projects">Projects</a></li>
+                    <li><a class="nav-link" data-page="about">About</a></li>
+                    <li><a class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-nav-toggle">&#9776;</button>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="page-content active">
+            <!-- Full Width Visual Banner --><div class="hero-slider-container">
+                <div class="intro-text">
+                    <div class="fade-in-up">
+                        <h1>Transforming Spaces, <span>Inspiring Lives</span>.</h1>
+                        <p>We create bespoke interiors that reflect your personality and lifestyle. From concept to completion, our team delivers beautiful, functional spaces tailored to you.</p>
+                        <a href="#" class="btn nav-trigger" data-page="projects">View Our Work</a>
+                    </div>
+                </div>
+                <div class="hero-slider">
+                    <div class="slide"><img src="images/banner/ban-1.jpg" alt="Modern House Exterior"></div>
+                    <div class="slide"><img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Elegant Living Space with modern furniture"></div>
+                    <div class="slide"><img src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Modern Kitchen with minimalist design"></div>
+                    <div class="slide"><img src="https://images.pexels.com/photos/3797991/pexels-photo-3797991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Serene Bedroom with neutral colors"></div>
+                    <div class="slide"><img src="https://images.pexels.com/photos/6587902/pexels-photo-6587902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Luxury Bathroom with marble details"></div>
+                </div>
+                <button class="slider-btn prev">&#10094;</button>
+                <button class="slider-btn next">&#10095;</button>
+                <div class="slider-dots"></div>
+            </div>
+            
+            <!-- Our Specialization Section --><div class="home-section"><div class="container"><div class="section-title fade-in-up"><h2>Our Specialization</h2><p>We blend artistry with technology to deliver unparalleled design experiences.</p></div><div class="specialization-grid"><div class="special-card fade-in-up"><div class="icon">&#128207;</div><h3>Bespoke Concepts</h3><p>Tailor-made designs that perfectly capture your unique vision and personal style.</p></div><div class="special-card fade-in-up"><div class="icon">&#127793;</div><h3>Sustainable Design</h3><p>Eco-friendly materials and practices for a beautiful and responsible living space.</p></div><div class="special-card fade-in-up"><div class="icon">&#128161;</div><h3>Smart Homes</h3><p>Integrating the latest technology for a home that's as intelligent as it is elegant.</p></div></div></div></div>
+            
+            <!-- Featured Projects Section --><div class="home-section featured-projects">
+                <div class="container">
+                    <div class="section-title fade-in-up">
+                        <h2>Featured Projects</h2>
+                        <p>A glimpse into our portfolio of meticulously crafted interiors.</p>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-item fade-in-up">
+                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Modern open-plan office space">
+                            <div class="project-overlay">
+                                <h4>Commercial Spaces</h4>
+                                <p>New York, USA</p>
+                            </div>
+                        </div>
+                        <div class="project-item fade-in-up">
+                            <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cozy and modern residential living room">
+                            <div class="project-overlay">
+                                <h4>Residential Homes</h4>
+                                <p>London, UK</p>
+                            </div>
+                        </div>
+                        <div class="project-item fade-in-up">
+                             <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Elegant and luxurious hotel room">
+                            <div class="project-overlay">
+                                <h4>Hospitality Venues</h4>
+                                <p>Malibu, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center fade-in-up">
+                         <a href="#" class="btn nav-trigger" data-page="projects">View All Projects</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Reviews Section --><div class="home-section"><div class="container"><div class="section-title fade-in-up"><h2>What Our Clients Say</h2><p>Our greatest achievement is the satisfaction of our clients.</p></div><div class="testimonial-grid"><div class="testimonial-card fade-in-up"><blockquote>"We handed over our new flat in Jubilee Hills to Rayala Interiors, and they gave us back a home. They understood our family's needs perfectly and even considered our Vastu requirements. The whole process was so smooth, and the final result is just amazing. Bahut accha kaam kiya!"</blockquote><p class="client-name">- Priya & Sameer Kumar, Hyderabad</p></div><div class="testimonial-card fade-in-up"><blockquote>"For our new office in HITEC City, we needed a design that was modern and inspired creativity. The Rayala team was fantastic. They were professional, stuck to the budget, and delivered the project on time, which is rare! Our employees love the new space."</blockquote><p class="client-name">- Rohan Gupta, Founder, TechVerge Solutions</p></div><div class="testimonial-card fade-in-up"><blockquote>"I was very particular about my kitchen and living room design. The designers at Rayala were so patient and full of creative ideas. They really listened to what I wanted and executed it with such perfection. The quality of their workmanship is top-notch. Truly happy with their service."</blockquote><p class="client-name">- Anjali Menon, Bangalore</div></div></div></div>
+        </section>
+
+        <section id="services" class="page-content">
+            <div class="section-title" style="padding: 6rem 0 0 0; background-color: var(--color-secondary-bg);">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions to craft your perfect environment.</p>
+            </div>
+
+            <div class="service-section" style="background-image: url('images/servicesbackgroundimages/back1.jpeg');">
+                <div class="container">
+                    <div class="service-content slide-in-right">
+                        <h3>Consulting</h3>
+                        <p>Our journey begins with a conversation. We delve deep into your vision, lifestyle, and aspirations to create a personalized design strategy. This foundational step ensures every decision reflects your unique identity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-section align-right" style="background-image: url('images/servicesbackgroundimages/back2.jpeg');">
+                <div class="container">
+                    <div class="service-content slide-in-left">
+                        <h3>Architecture</h3>
+                        <p>We shape spaces from the ground up. Our architectural services focus on creating a seamless flow between the structure and its interior, ensuring that the very bones of the space are as beautiful and functional as the decor.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="service-section" style="background-image: url('https://images.pexels.com/photos/1957478/pexels-photo-1957478.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="container">
+                    <div class="service-content slide-in-right">
+                        <h3>Planning</h3>
+                        <p>Meticulous space planning is key to a harmonious environment. We use advanced tools and a keen eye for detail to optimize layouts, maximize functionality, and ensure every square foot serves a purpose beautifully.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-section align-right" style="background-image: url('images/servicesbackgroundimages/back3.jpeg');">
+                <div class="container">
+                    <div class="service-content slide-in-left">
+                        <h3>Lighting Design</h3>
+                        <p>Lighting is the soul of a room. We design custom lighting schemes that enhance the architecture, create ambiance, and highlight key features. From natural light to bespoke fixtures, we illuminate your space with purpose and art.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="page-content">
+             <div class="container">
+                <div class="section-title">
+                    <h2>Our Portfolio</h2>
+                    <p>Explore the breadth of our design expertise across diverse sectors.</p>
+                </div>
+                
+                <div class="content-row">
+                    <div class="content-image slide-in-left">
+                        <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Modern stylish office waiting area">
+                    </div>
+                    <div class="content-text slide-in-right">
+                        <h3>Commercial</h3>
+                        <p>We design dynamic commercial spaces that foster productivity and reflect brand identity. From corporate offices to boutique retail, our solutions are tailored to enhance business operations and customer experience.</p>
+                        <a href="#" class="btn nav-trigger" data-page="project-commercial">View Gallery</a>
+                    </div>
+                </div>
+
+                <div class="content-row reverse">
+                    <div class="content-image slide-in-right">
+                        <img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Spacious and bright luxury living room">
+                    </div>
+                    <div class="content-text slide-in-left">
+                        <h3>Residential</h3>
+                        <p>Our residential projects are sanctuaries of style and comfort. We craft deeply personal homes that are both beautiful and livable, creating a perfect backdrop for the lives lived within them.</p>
+                        <a href="#" class="btn nav-trigger" data-page="project-residential">View Gallery</a>
+                    </div>
+                </div>
+
+                <div class="content-row">
+                    <div class="content-image slide-in-left">
+                        <img src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Luxurious and elegant hotel suite interior">
+                    </div>
+                    <div class="content-text slide-in-right">
+                        <h3>Hospitality</h3>
+                        <p>In the world of hospitality, we create unforgettable guest experiences. Our designs for hotels, restaurants, and bars balance aesthetic appeal with operational efficiency, resulting in destinations that captivate and delight.</p>
+                         <a href="#" class="btn nav-trigger" data-page="project-hospitality">View Gallery</a>
+                    </div>
+                </div>
+
+                <div class="content-row reverse">
+                    <div class="content-image slide-in-right">
+                        <img src="https://images.pexels.com/photos/349749/kitchen-stove-sink-kitchen-counter-349749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Outdoor kitchen and patio area for landscape design">
+                    </div>
+                    <div class="content-text slide-in-left">
+                        <h3>Landscape</h3>
+                        <p>We extend our design philosophy to the outdoors, creating seamless transitions between interior and exterior spaces. Our landscape designs focus on sustainability, beauty, and creating tranquil outdoor living areas.</p>
+                         <a href="#" class="btn nav-trigger" data-page="project-landscape">View Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Detail Pages --><section id="project-commercial" class="page-content project-gallery-page">
+            <div class="container">
+                <a href="#" class="btn-back nav-trigger" data-page="projects">&#10094; Back to All Projects</a>
+                <div class="page-header"><h2>Commercial Projects</h2><p>Innovative designs for workspaces, retail, and public areas.</p></div>
+                <div class="project-gallery-grid">
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/1.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/2.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/3.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/4.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/5.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/6.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/7.jpg" alt="Designers collaborating in a creative workspace"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/commercial/8.jpg" alt="Designers collaborating in a creative workspace"></div>
+                </div>
+            </div>
+        </section>
+        <section id="project-residential" class="page-content project-gallery-page">
+            <div class="container">
+                <a href="#" class="btn-back nav-trigger" data-page="projects">&#10094; Back to All Projects</a>
+                <div class="page-header"><h2>Residential Projects</h2><p>Creating personal sanctuaries of style and comfort.</p></div>
+                <div class="project-gallery-grid">
+                    <div class="gallery-item fade-in-up"><img src="images/residential/res1.jpg" alt="Warm and inviting modern living room"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/residential/res2.jpeg" alt="Sleek kitchen with dark cabinets and marble island"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/residential/res3.jpeg" alt="Minimalist master bedroom with large window"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/residential/res4.jpeg" alt="Contemporary living room with bold art"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/residential/res5.jpg" alt="Modern bathroom with a freestanding tub"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/residential/res6.jpg" alt="Elegant dining room set for a formal dinner"></div>
+                </div>
+            </div>
+        </section>
+        <section id="project-hospitality" class="page-content project-gallery-page">
+            <div class="container">
+                <a href="#" class="btn-back nav-trigger" data-page="projects">&#10094; Back to All Projects</a>
+                <div class="page-header"><h2>Hospitality Projects</h2><p>Designing unforgettable experiences for guests.</p></div>
+                <div class="project-gallery-grid">
+                    <div class="gallery-item fade-in-up"><img src="images/hospitality/hos1.jpeg" alt="Grand hotel lobby with high ceilings"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/hospitality/hos2.jpeg" alt="Fine-dining restaurant with elegant decor"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/hospitality/hos3.jpeg" alt="Chic and moody bar interior with neon lights"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/hospitality/hos4.jpeg" alt="Cozy cafe with rustic wooden tables"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/hospitality/hos5.jpeg" alt="Busy restaurant interior with warm lighting"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/hospitality/hos6.jpeg" alt="Luxurious hotel room with a view"></div>
+                </div>
+            </div>
+        </section>
+        <section id="project-landscape" class="page-content project-gallery-page">
+            <div class="container">
+                <a href="#" class="btn-back nav-trigger" data-page="projects">&#10094; Back to All Projects</a>
+                <div class="page-header"><h2>Landscape Projects</h2><p>Seamlessly blending interior comfort with outdoor beauty.</p></div>
+                <div class="project-gallery-grid">
+                    <div class="gallery-item fade-in-up"><img src="images/landscape/las1.jpeg" alt="Modern garden patio with comfortable seating"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/landscape/las2.jpeg" alt="Stylish rooftop terrace with plants and city view"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/landscape/las3.jpeg" alt="Clean and minimalist poolside lounge area"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/landscape/las4.jpeg" alt="Outdoor dining area surrounded by greenery"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/landscape/las5.jpeg" alt="Zen garden with stone path and water feature"></div>
+                    <div class="gallery-item fade-in-up"><img src="images/landscape/las6.jpeg" alt="Cozy fire pit area in a modern backyard"></div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="about" class="page-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Rayala Interiors</h2>
+                    <p>Driven by passion, defined by design.</p>
+                </div>
+                <div class="about-text">
+                    <h3>Our Commitment to Excellence</h3>
+                    <p>We are a team of experienced Interior designers who have a common goal to excel in designing world class architecture and best in class designs. We believe in perfection and seamless execution. Our values are very strong and they are customer centric. Out team possess over a decade of enriched experience in design and seamless execution.</p>
+                    <p>We thrive to achieve excellence and believe customer satisfaction is our highest achievement. Our dedicated staff ensure that we deliver the promises with utmost precise and perfection.</p>
+                    <a href="#" class="btn nav-trigger" data-page="contact">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="page-content">
+            <div class="container"><div class="section-title"><h2>Contact Us</h2><p>Let's start a conversation about your next project.</p></div><div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We're here to help and answer any question you might have. We look forward to hearing from you.</p>
+                    <div class="contact-info-item"><span class="icon">&#128205;</span><span>27-16/22/5, West Sri Krishna Nagar Colony, Neredmet, Hyderabad, 500056</span></div>
+                    <div class="contact-info-item"><span class="icon">&#9993;</span><span>rayalainteriors@gmail.com</span></div>
+                    <div class="contact-info-item"><span class="icon">&#128222;</span><span>+91 8885386398<br>+91 9885068474</span></div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+                        <button type="submit" class="btn">Send Message</button>
+                        <div id="form-result"></div>
+                    </form>
+                </div>
+            </div></div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo nav-link" data-page="home">
+                 <img src="images/rayala icon1.png" alt="Rayala Interiors Logo" class="logo-img">
+            </a>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/rayala_interiors?igsh=MWFsYmZiMDByNmM5ag%3D%3D&utm_source=qr">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+            <p>&copy; 2024 Rayala Interiors Design Studio. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navTriggers = document.querySelectorAll('.nav-trigger');
+            const pages = document.querySelectorAll('.page-content');
+            const navMenu = document.querySelector('.nav-links');
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const header = document.querySelector('.header');
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+
+            function showPage(pageId) {
+                pages.forEach(page => page.classList.remove('active'));
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+
+                // Update nav link active state based on main pages
+                const mainPageId = pageId.startsWith('project-') ? 'projects' : pageId;
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.page === mainPageId);
+                });
+                
+                navMenu.classList.remove('active');
+                
+                // Always scroll to top for a new page for a smoother SPA feel
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage(this.dataset.page);
+                });
+            });
+
+             navTriggers.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage(this.dataset.page);
+                });
+            });
+
+            mobileToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+            // HERO SLIDER LOGIC
+            const slider = document.querySelector('.hero-slider');
+            if (slider) {
+                const slides = document.querySelectorAll('.slide');
+                const prevBtn = document.querySelector('.slider-btn.prev');
+                const nextBtn = document.querySelector('.slider-btn.next');
+                const dotsContainer = document.querySelector('.slider-dots');
+                
+                let currentIndex = 0;
+                const totalSlides = slides.length;
+                let slideInterval;
+
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => { goToSlide(i); resetInterval(); });
+                    dotsContainer.appendChild(dot);
+                });
+                
+                const dots = document.querySelectorAll('.dot');
+
+                function updateDots() {
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+                }
+
+                function goToSlide(index) {
+                    currentIndex = (index + totalSlides) % totalSlides;
+                    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    updateDots();
+                }
+                
+                const startInterval = () => slideInterval = setInterval(() => goToSlide(currentIndex + 1), 5000);
+                const resetInterval = () => { clearInterval(slideInterval); startInterval(); };
+
+                nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); resetInterval(); });
+                prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); resetInterval(); });
+
+                startInterval();
+            }
+            
+            // --- CONTACT FORM API LOGIC ---
+            const contactForm = document.getElementById('contact-form');
+            const formResult = document.getElementById('form-result');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                const object = {};
+                formData.forEach((value, key) => {
+                    object[key] = value;
+                });
+                
+                object.access_key = 'b1f6ef24-9a51-4d39-a937-abd02cb0e38f'; 
+
+                const json = JSON.stringify(object);
+                formResult.innerHTML = "Sending...";
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        formResult.innerHTML = "Message sent successfully!";
+                        formResult.style.color = "green";
+                    } else {
+                        console.log(response);
+                        formResult.innerHTML = jsonResponse.message;
+                        formResult.style.color = "red";
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    formResult.innerHTML = "Something went wrong!";
+                    formResult.style.color = "red";
+                })
+                .then(function() {
+                    contactForm.reset();
+                    setTimeout(() => {
+                        formResult.innerHTML = '';
+                    }, 5000);
+                });
+            });
+
+
+            // --- SCROLL ANIMATION LOGIC ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15 
+            });
+
+             function initAnimationsForPage(pageElement) {
+                if (!pageElement) return;
+                const animatedElements = pageElement.querySelectorAll('.fade-in-up:not(.visible), .slide-in-left:not(.visible), .slide-in-right:not(.visible)');
+                animatedElements.forEach(el => observer.observe(el));
+            }
+
+            const pageContainer = document.querySelector('main');
+            const mutationObserver = new MutationObserver((mutationsList) => {
+                for(const mutation of mutationsList) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                       const targetPage = mutation.target;
+                       if (targetPage.classList.contains('active')) {
+                           initAnimationsForPage(targetPage);
+                       }
+                    }
+                }
+            });
+
+            pages.forEach(page => {
+                mutationObserver.observe(page, { attributes: true });
+            });
+            
+            initAnimationsForPage(document.getElementById('home'));
+
+        });
+    </script>
+</body>
+</html>
+
